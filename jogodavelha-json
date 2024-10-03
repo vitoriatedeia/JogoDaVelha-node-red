@@ -1,0 +1,51 @@
+[
+    {
+        "id": "c6d6b1d07150c694",
+        "type": "ui_button",
+        "z": "a662686d0194ffcd",
+        "g": "429a43fa1610a4bf",
+        "name": "",
+        "group": "8895d6727c96e0d4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Enviar",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "jogada",
+        "payloadType": "flow",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 770,
+        "y": 600,
+        "wires": [
+            [
+                "88d35b1fe6d81e5e"
+            ]
+        ]
+    },
+    {
+        "id": "8895d6727c96e0d4",
+        "type": "ui_group",
+        "name": "Jogada",
+        "tab": "05510d100248c8e4",
+        "order": 3,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "05510d100248c8e4",
+        "type": "ui_tab",
+        "name": "Jogo da Velha",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
