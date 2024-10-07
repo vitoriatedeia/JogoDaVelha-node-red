@@ -1,51 +1,914 @@
 [
-    {
-        "id": "c6d6b1d07150c694",
-        "type": "ui_button",
-        "z": "a662686d0194ffcd",
-        "g": "429a43fa1610a4bf",
-        "name": "",
-        "group": "8895d6727c96e0d4",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Enviar",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "jogada",
-        "payloadType": "flow",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 770,
-        "y": 600,
-        "wires": [
-            [
-                "88d35b1fe6d81e5e"
-            ]
-        ]
+  {
+    "id": "a662686d0194ffcd",
+    "type": "tab",
+    "label": "Jogo da Velha",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "429a43fa1610a4bf",
+    "type": "group",
+    "z": "a662686d0194ffcd",
+    "name": "Jogada",
+    "style": {
+      "label": true
     },
-    {
-        "id": "8895d6727c96e0d4",
-        "type": "ui_group",
-        "name": "Jogada",
-        "tab": "05510d100248c8e4",
-        "order": 3,
-        "disp": true,
-        "width": 9,
-        "collapse": false,
-        "className": ""
+    "nodes": ["7e4f489f40a65f25", "c6d6b1d07150c694", "7fb4c78df3a2b497"],
+    "x": 274,
+    "y": 559,
+    "w": 572,
+    "h": 82
+  },
+  {
+    "id": "87dbc9b59e39f73c",
+    "type": "group",
+    "z": "a662686d0194ffcd",
+    "name": "Legenda",
+    "style": {
+      "label": true
     },
-    {
-        "id": "05510d100248c8e4",
-        "type": "ui_tab",
-        "name": "Jogo da Velha",
-        "icon": "dashboard",
-        "order": 1,
-        "disabled": false,
-        "hidden": false
-    }
+    "nodes": ["380e8155c9c1d3ca", "255b1a971087ad0a"],
+    "x": 54,
+    "y": 359,
+    "w": 172,
+    "h": 122
+  },
+  {
+    "id": "b809336b12498abf",
+    "type": "group",
+    "z": "a662686d0194ffcd",
+    "name": "Tabuleiro",
+    "style": {
+      "label": true
+    },
+    "nodes": [
+      "7ae39622eab1f97e",
+      "87e37681140ae9fc",
+      "347ad997f06c427a",
+      "58ab77127b61af2e",
+      "0e86a23bf236e3a3",
+      "75a95b6191d7e7f3",
+      "7853b8732d4ea308",
+      "3b3ba2f42fa1c6db",
+      "176c4523761a46da",
+      "73ba6a0b7d5d66c8",
+      "4a12f0c0717f2b32",
+      "4341c3c0173b16cb",
+      "9c3bf4f6be241529",
+      "4f1142635f40fecb",
+      "76c9946c17e6ab3e",
+      "03ce45e034f53623",
+      "9484975cce49e92b",
+      "912ccb794780356b",
+      "ec7865e00fd828f1",
+      "88ca66baec5f5301"
+    ],
+    "x": 274,
+    "y": 39,
+    "w": 592,
+    "h": 482
+  },
+  {
+    "id": "89a41c9da0170bb2",
+    "type": "group",
+    "z": "a662686d0194ffcd",
+    "name": "Simulação",
+    "style": {
+      "label": true
+    },
+    "nodes": [
+      "48687cad97ccc1fc",
+      "f67f28d8d4a9fa81",
+      "ff0866cc9f282ab3",
+      "819629f55bcd0785",
+      "13b1b641997585a5",
+      "5dcbd15fbc8f43fe"
+    ],
+    "x": 54,
+    "y": 39,
+    "w": 172,
+    "h": 282
+  },
+  {
+    "id": "48687cad97ccc1fc",
+    "type": "inject",
+    "z": "a662686d0194ffcd",
+    "g": "89a41c9da0170bb2",
+    "name": "Injetar",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "{ \"tabuleiro\": \"000000000\" }",
+    "payloadType": "str",
+    "x": 150,
+    "y": 80,
+    "wires": [["7ae39622eab1f97e"]]
+  },
+  {
+    "id": "88ca66baec5f5301",
+    "type": "debug",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "name": "debug 3",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 540,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "7ae39622eab1f97e",
+    "type": "json",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "name": "",
+    "property": "payload",
+    "action": "",
+    "pretty": false,
+    "x": 350,
+    "y": 80,
+    "wires": [
+      [
+        "88ca66baec5f5301",
+        "347ad997f06c427a",
+        "4341c3c0173b16cb",
+        "9c3bf4f6be241529",
+        "4f1142635f40fecb",
+        "76c9946c17e6ab3e",
+        "03ce45e034f53623",
+        "9484975cce49e92b",
+        "912ccb794780356b",
+        "ec7865e00fd828f1"
+      ]
+    ]
+  },
+  {
+    "id": "f67f28d8d4a9fa81",
+    "type": "inject",
+    "z": "a662686d0194ffcd",
+    "g": "89a41c9da0170bb2",
+    "name": "Injetar",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "{ \"tabuleiro\": \"111111111\" }",
+    "payloadType": "str",
+    "x": 150,
+    "y": 120,
+    "wires": [["7ae39622eab1f97e"]]
+  },
+  {
+    "id": "ff0866cc9f282ab3",
+    "type": "inject",
+    "z": "a662686d0194ffcd",
+    "g": "89a41c9da0170bb2",
+    "name": "Injetar",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "{ \"tabuleiro\": \"222222222\" }",
+    "payloadType": "str",
+    "x": 150,
+    "y": 160,
+    "wires": [["7ae39622eab1f97e"]]
+  },
+  {
+    "id": "819629f55bcd0785",
+    "type": "inject",
+    "z": "a662686d0194ffcd",
+    "g": "89a41c9da0170bb2",
+    "name": "Injetar",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "{ \"tabuleiro\": \"120000001\" }",
+    "payloadType": "str",
+    "x": 150,
+    "y": 200,
+    "wires": [["7ae39622eab1f97e"]]
+  },
+  {
+    "id": "13b1b641997585a5",
+    "type": "inject",
+    "z": "a662686d0194ffcd",
+    "g": "89a41c9da0170bb2",
+    "name": "Injetar",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "{ \"tabuleiro\": \"220020100\" }",
+    "payloadType": "str",
+    "x": 150,
+    "y": 240,
+    "wires": [["7ae39622eab1f97e"]]
+  },
+  {
+    "id": "5dcbd15fbc8f43fe",
+    "type": "inject",
+    "z": "a662686d0194ffcd",
+    "g": "89a41c9da0170bb2",
+    "name": "Injetar",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "{ \"tabuleiro\": \"122000021\" }",
+    "payloadType": "str",
+    "x": 150,
+    "y": 280,
+    "wires": [["7ae39622eab1f97e"]]
+  },
+  {
+    "id": "87e37681140ae9fc",
+    "type": "ui_led",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "order": 1,
+    "group": "325540c511950dff",
+    "width": 3,
+    "height": 3,
+    "label": "",
+    "labelPlacement": "left",
+    "labelAlignment": "left",
+    "colorForValue": [
+      {
+        "color": "#ff0000",
+        "value": "1",
+        "valueType": "str"
+      },
+      {
+        "color": "#0000ff",
+        "value": "2",
+        "valueType": "str"
+      }
+    ],
+    "allowColorForValueInMessage": false,
+    "shape": "square",
+    "showGlow": true,
+    "name": "0",
+    "x": 790,
+    "y": 160,
+    "wires": []
+  },
+  {
+    "id": "347ad997f06c427a",
+    "type": "function",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "name": "msg.payload.tabuleiro[0]",
+    "func": "msg.payload = msg.payload.tabuleiro [0];\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 160,
+    "wires": [["87e37681140ae9fc"]]
+  },
+  {
+    "id": "58ab77127b61af2e",
+    "type": "ui_led",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "order": 7,
+    "group": "325540c511950dff",
+    "width": 3,
+    "height": 3,
+    "label": "",
+    "labelPlacement": "left",
+    "labelAlignment": "left",
+    "colorForValue": [
+      {
+        "color": "#ff0000",
+        "value": "1",
+        "valueType": "str"
+      },
+      {
+        "color": "#0000ff",
+        "value": "2",
+        "valueType": "str"
+      }
+    ],
+    "allowColorForValueInMessage": false,
+    "shape": "square",
+    "showGlow": true,
+    "name": "5",
+    "x": 790,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "0e86a23bf236e3a3",
+    "type": "ui_led",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "order": 10,
+    "group": "325540c511950dff",
+    "width": 3,
+    "height": 3,
+    "label": "",
+    "labelPlacement": "left",
+    "labelAlignment": "left",
+    "colorForValue": [
+      {
+        "color": "#ff0000",
+        "value": "1",
+        "valueType": "str"
+      },
+      {
+        "color": "#0000ff",
+        "value": "2",
+        "valueType": "str"
+      }
+    ],
+    "allowColorForValueInMessage": false,
+    "shape": "square",
+    "showGlow": true,
+    "name": "7",
+    "x": 790,
+    "y": 440,
+    "wires": []
+  },
+  {
+    "id": "75a95b6191d7e7f3",
+    "type": "ui_led",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "order": 6,
+    "group": "325540c511950dff",
+    "width": 3,
+    "height": 3,
+    "label": "",
+    "labelPlacement": "left",
+    "labelAlignment": "left",
+    "colorForValue": [
+      {
+        "color": "#ff0000",
+        "value": "1",
+        "valueType": "str"
+      },
+      {
+        "color": "#0000ff",
+        "value": "2",
+        "valueType": "str"
+      }
+    ],
+    "allowColorForValueInMessage": false,
+    "shape": "square",
+    "showGlow": true,
+    "name": "4",
+    "x": 790,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "7853b8732d4ea308",
+    "type": "ui_led",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "order": 11,
+    "group": "325540c511950dff",
+    "width": 3,
+    "height": 3,
+    "label": "",
+    "labelPlacement": "left",
+    "labelAlignment": "left",
+    "colorForValue": [
+      {
+        "color": "#ff0000",
+        "value": "1",
+        "valueType": "str"
+      },
+      {
+        "color": "#0000ff",
+        "value": "2",
+        "valueType": "str"
+      }
+    ],
+    "allowColorForValueInMessage": false,
+    "shape": "square",
+    "showGlow": true,
+    "name": "8",
+    "x": 790,
+    "y": 480,
+    "wires": []
+  },
+  {
+    "id": "3b3ba2f42fa1c6db",
+    "type": "ui_led",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "order": 9,
+    "group": "325540c511950dff",
+    "width": 3,
+    "height": 3,
+    "label": "",
+    "labelPlacement": "left",
+    "labelAlignment": "left",
+    "colorForValue": [
+      {
+        "color": "#ff0000",
+        "value": "1",
+        "valueType": "str"
+      },
+      {
+        "color": "#0000ff",
+        "value": "2",
+        "valueType": "str"
+      }
+    ],
+    "allowColorForValueInMessage": false,
+    "shape": "square",
+    "showGlow": true,
+    "name": "6",
+    "x": 790,
+    "y": 400,
+    "wires": []
+  },
+  {
+    "id": "176c4523761a46da",
+    "type": "ui_led",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "order": 5,
+    "group": "325540c511950dff",
+    "width": 3,
+    "height": 3,
+    "label": "",
+    "labelPlacement": "left",
+    "labelAlignment": "left",
+    "colorForValue": [
+      {
+        "color": "#ff0000",
+        "value": "1",
+        "valueType": "str"
+      },
+      {
+        "color": "#0000ff",
+        "value": "2",
+        "valueType": "str"
+      }
+    ],
+    "allowColorForValueInMessage": false,
+    "shape": "square",
+    "showGlow": true,
+    "name": "3",
+    "x": 790,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "73ba6a0b7d5d66c8",
+    "type": "ui_led",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "order": 3,
+    "group": "325540c511950dff",
+    "width": 3,
+    "height": 3,
+    "label": "",
+    "labelPlacement": "left",
+    "labelAlignment": "left",
+    "colorForValue": [
+      {
+        "color": "#ff0000",
+        "value": "1",
+        "valueType": "str"
+      },
+      {
+        "color": "#0000ff",
+        "value": "2",
+        "valueType": "str"
+      }
+    ],
+    "allowColorForValueInMessage": false,
+    "shape": "square",
+    "showGlow": true,
+    "name": "2",
+    "x": 790,
+    "y": 240,
+    "wires": []
+  },
+  {
+    "id": "4a12f0c0717f2b32",
+    "type": "ui_led",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "order": 2,
+    "group": "325540c511950dff",
+    "width": 3,
+    "height": 3,
+    "label": "",
+    "labelPlacement": "left",
+    "labelAlignment": "left",
+    "colorForValue": [
+      {
+        "color": "#ff0000",
+        "value": "1",
+        "valueType": "str"
+      },
+      {
+        "color": "#0000ff",
+        "value": "2",
+        "valueType": "str"
+      }
+    ],
+    "allowColorForValueInMessage": false,
+    "shape": "square",
+    "showGlow": true,
+    "name": "1",
+    "x": 790,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "4341c3c0173b16cb",
+    "type": "function",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "name": "msg.payload.tabuleiro[1]",
+    "func": "msg.payload = msg.payload.tabuleiro [1];\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 200,
+    "wires": [["4a12f0c0717f2b32"]]
+  },
+  {
+    "id": "9c3bf4f6be241529",
+    "type": "function",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "name": "msg.payload.tabuleiro[2]",
+    "func": "msg.payload = msg.payload.tabuleiro [2];\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 240,
+    "wires": [["73ba6a0b7d5d66c8"]]
+  },
+  {
+    "id": "4f1142635f40fecb",
+    "type": "function",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "name": "msg.payload.tabuleiro[3]",
+    "func": "msg.payload = msg.payload.tabuleiro [3];\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 280,
+    "wires": [["176c4523761a46da"]]
+  },
+  {
+    "id": "76c9946c17e6ab3e",
+    "type": "function",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "name": "msg.payload.tabuleiro[4]",
+    "func": "msg.payload = msg.payload.tabuleiro [4];\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 320,
+    "wires": [["75a95b6191d7e7f3"]]
+  },
+  {
+    "id": "03ce45e034f53623",
+    "type": "function",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "name": "msg.payload.tabuleiro[5]",
+    "func": "msg.payload = msg.payload.tabuleiro [5];\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 360,
+    "wires": [["58ab77127b61af2e"]]
+  },
+  {
+    "id": "9484975cce49e92b",
+    "type": "function",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "name": "msg.payload.tabuleiro[6]",
+    "func": "msg.payload = msg.payload.tabuleiro [6];\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 400,
+    "wires": [["3b3ba2f42fa1c6db"]]
+  },
+  {
+    "id": "912ccb794780356b",
+    "type": "function",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "name": "msg.payload.tabuleiro[7]",
+    "func": "msg.payload = msg.payload.tabuleiro [7];\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 440,
+    "wires": [["0e86a23bf236e3a3"]]
+  },
+  {
+    "id": "ec7865e00fd828f1",
+    "type": "function",
+    "z": "a662686d0194ffcd",
+    "g": "b809336b12498abf",
+    "name": "msg.payload.tabuleiro[8]",
+    "func": "msg.payload = msg.payload.tabuleiro [8];\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 480,
+    "wires": [["7853b8732d4ea308"]]
+  },
+  {
+    "id": "380e8155c9c1d3ca",
+    "type": "ui_button",
+    "z": "a662686d0194ffcd",
+    "g": "87dbc9b59e39f73c",
+    "name": "",
+    "group": "81e79797c84047de",
+    "order": 1,
+    "width": 8,
+    "height": 1,
+    "passthru": false,
+    "label": "Jogador 1",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "red",
+    "className": "",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "topic",
+    "topicType": "msg",
+    "x": 140,
+    "y": 400,
+    "wires": [[]]
+  },
+  {
+    "id": "255b1a971087ad0a",
+    "type": "ui_button",
+    "z": "a662686d0194ffcd",
+    "g": "87dbc9b59e39f73c",
+    "name": "",
+    "group": "81e79797c84047de",
+    "order": 2,
+    "width": 8,
+    "height": 1,
+    "passthru": false,
+    "label": "Jogador 2",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "blue",
+    "className": "",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "topic",
+    "topicType": "msg",
+    "x": 140,
+    "y": 440,
+    "wires": [[]]
+  },
+  {
+    "id": "7e4f489f40a65f25",
+    "type": "ui_text_input",
+    "z": "a662686d0194ffcd",
+    "g": "429a43fa1610a4bf",
+    "name": "",
+    "label": "",
+    "tooltip": "",
+    "group": "8895d6727c96e0d4",
+    "order": 2,
+    "width": 9,
+    "height": 2,
+    "passthru": true,
+    "mode": "text",
+    "delay": 300,
+    "topic": "topic",
+    "sendOnBlur": true,
+    "className": "",
+    "topicType": "msg",
+    "x": 360,
+    "y": 600,
+    "wires": [["7fb4c78df3a2b497"]]
+  },
+  {
+    "id": "c6d6b1d07150c694",
+    "type": "ui_button",
+    "z": "a662686d0194ffcd",
+    "g": "429a43fa1610a4bf",
+    "name": "",
+    "group": "8895d6727c96e0d4",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "Enviar",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "jogada",
+    "payloadType": "flow",
+    "topic": "topic",
+    "topicType": "msg",
+    "x": 770,
+    "y": 600,
+    "wires": [["88d35b1fe6d81e5e"]]
+  },
+  {
+    "id": "88d35b1fe6d81e5e",
+    "type": "debug",
+    "z": "a662686d0194ffcd",
+    "name": "debug 5",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 940,
+    "y": 600,
+    "wires": []
+  },
+  {
+    "id": "7fb4c78df3a2b497",
+    "type": "change",
+    "z": "a662686d0194ffcd",
+    "g": "429a43fa1610a4bf",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "jogada",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 570,
+    "y": 600,
+    "wires": [["c6d6b1d07150c694"]]
+  },
+  {
+    "id": "325540c511950dff",
+    "type": "ui_group",
+    "name": "Tabuleiro",
+    "tab": "05510d100248c8e4",
+    "order": 1,
+    "disp": true,
+    "width": 9,
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "81e79797c84047de",
+    "type": "ui_group",
+    "name": "Legenda",
+    "tab": "05510d100248c8e4",
+    "order": 2,
+    "disp": true,
+    "width": 8,
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "8895d6727c96e0d4",
+    "type": "ui_group",
+    "name": "Jogada",
+    "tab": "05510d100248c8e4",
+    "order": 3,
+    "disp": true,
+    "width": 9,
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "05510d100248c8e4",
+    "type": "ui_tab",
+    "name": "Jogo da Velha",
+    "icon": "dashboard",
+    "order": 1,
+    "disabled": false,
+    "hidden": false
+  }
 ]
